@@ -17,12 +17,9 @@ public class App {
 
     public List<String> run() {
         List<Task> tasks = taskRepository.loadTasks();
-
         List<String> result = new ArrayList<>();
-        result.add("# To be done");
-        tasks.stream().filter(task -> !task.isCompleted()).forEach(task -> result.add(task.format()));
-        result.add("# Completed");
-        tasks.stream().filter(Task::isCompleted).forEach(task -> result.add(task.format()));
+        result.addAll(Sections.tbd().format(tasks));
+        result.addAll(Sections.completed().format(tasks));
         return result;
     }
 
