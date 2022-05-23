@@ -5,13 +5,8 @@ package com.tw.cn.cap.gtb.todo;
 
 public class App {
 
-    public static final String HELLO_WORLD = "Hello World!";
-
-    public String getGreeting() {
-        return HELLO_WORLD;
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
     }
 }
