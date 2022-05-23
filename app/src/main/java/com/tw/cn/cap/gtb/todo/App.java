@@ -17,12 +17,16 @@ public class App {
     }
 
     public List<String> run() {
+        List<String> lines = readTasks();
+        List<String> result = new ArrayList<>();
+        result.add("# To be done");
+        result.addAll(lines);
+        return result;
+    }
+
+    private List<String> readTasks() {
         try {
-            List<String> result = new ArrayList<>();
-            result.add("# To be done");
-            List<String> lines = Files.readAllLines(Constants.TASK_PATH, StandardCharsets.UTF_8);
-            result.addAll(lines);
-            return result;
+            return Files.readAllLines(Constants.TASK_PATH, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new AppCannotReadFileException(e);
         }
