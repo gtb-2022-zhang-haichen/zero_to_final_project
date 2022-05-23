@@ -4,8 +4,15 @@
 package com.tw.cn.cap.gtb.todo;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-
+    @Test
+    void should_list_existed_tasks() {
+        List<String> result = new App().run();
+        assertEquals(List.of("T01", "T02"), result);
+    }
 }
