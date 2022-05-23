@@ -13,6 +13,11 @@ class AppTest {
     @Test
     void should_list_existed_tasks() {
         List<String> result = new App().run();
-        assertEquals(List.of("T01", "T02"), result);
+        assertEquals(List.of(
+                "# To be done",
+                "T01",
+                "T02"
+            ),
+            result);
     }
 }
