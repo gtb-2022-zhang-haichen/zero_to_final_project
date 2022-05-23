@@ -10,4 +10,10 @@ class TaskFactoryTest {
         boolean isCompleted = TaskFactory.createTask(1, "+ foo").isCompleted();
         assertFalse(isCompleted);
     }
+
+    @Test
+    void should_support_name_with_multiple_white_space() {
+        Task task = TaskFactory.createTask(1, "+    foo   bar   ");
+        assertEquals("   foo   bar   ", task.name());
+    }
 }
