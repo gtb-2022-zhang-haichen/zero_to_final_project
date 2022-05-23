@@ -6,7 +6,6 @@ package com.tw.cn.cap.gtb.todo;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
 public class App {
@@ -17,9 +16,8 @@ public class App {
     }
 
     public List<String> run() {
-        String path = System.getProperty("user.home");
         try {
-            return Files.readAllLines(Path.of(path + "/.todo/tasks"), StandardCharsets.UTF_8);
+            return Files.readAllLines(Constants.TASK_PATH, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new AppCannotReadFileException(e);
         }
