@@ -15,8 +15,8 @@ class AppTest {
         List<String> result = new App().run();
         assertEquals(List.of(
                 "# To be done",
-                "T01",
-                "T02"
+                "1 T01",
+                "2 T02"
             ),
             result);
     }

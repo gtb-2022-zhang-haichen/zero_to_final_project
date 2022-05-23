@@ -20,7 +20,9 @@ public class App {
         List<String> lines = readTasks();
         List<String> result = new ArrayList<>();
         result.add("# To be done");
-        result.addAll(lines);
+        for (int i = 0; i < lines.size(); i++) {
+            result.add("%d %s".formatted(i + 1, lines.get(i)));
+        }
         return result;
     }
 
