@@ -9,6 +9,7 @@ public record Sections(String title, boolean flag) {
     public static final boolean TO_BE_DONE_FLAG = false;
     public static final String COMPLETED_TITLE = "# Completed";
     public static final boolean COMPLETED_FLAG = true;
+    public static final String EMPTY = "Empty";
 
     static Sections completed() {
         return new Sections(COMPLETED_TITLE, COMPLETED_FLAG);
@@ -25,6 +26,9 @@ public record Sections(String title, boolean flag) {
             .filter(this::isTaskCompleted)
             .map(Task::format)
             .forEach(result::add);
+        if (result.size() == 1) {
+            result.add(EMPTY);
+        }
         return result;
     }
 
