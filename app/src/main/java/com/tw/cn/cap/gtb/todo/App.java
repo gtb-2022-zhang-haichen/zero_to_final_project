@@ -20,7 +20,9 @@ public class App {
 
         List<String> result = new ArrayList<>();
         result.add("# To be done");
-        tasks.forEach(task -> result.add(task.format()));
+        tasks.stream().filter(task -> !task.isCompleted()).forEach(task -> result.add(task.format()));
+        result.add("# Completed");
+        tasks.stream().filter(Task::isCompleted).forEach(task -> result.add(task.format()));
         return result;
     }
 
