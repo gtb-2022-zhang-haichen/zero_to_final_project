@@ -1,6 +1,5 @@
 package com.tw.cn.cap.gtb.todo;
 
-import java.util.Arrays;
 
 public class TaskFactory {
 
